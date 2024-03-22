@@ -21,7 +21,7 @@ SwiperCore.use([
 
 export const doraSlider = {
   serviceSlider: {
-    slidesPerView: 4,
+    slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
     centerSlider: true,
@@ -53,7 +53,7 @@ export const doraSlider = {
       },
       // when window width is >= 1024px
       1240: {
-        slidesPerView: 4,
+        slidesPerView: 3,
         spaceBetween: 30,
       },
     },

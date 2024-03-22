@@ -17,6 +17,7 @@ import Cursor from "../src/layout/Cursor";
 import PreLoader from "../src/layout/PreLoader";
 import { dora } from "@/src/utils";
 import { Fragment, useContext, useEffect } from "react";
+import Timeline from "@/src/components/Timeline";
 
 const Index = () => {
   useEffect(() => {
@@ -42,8 +43,8 @@ const Index = () => {
     feedbacks,
     projects,
     social_handles,
+    timeline_data,
   } = useContext(DoraContext);
-  console.log(".............", skills);
   return (
     <Fragment>
       {blog && <BlogPopup />}
@@ -67,6 +68,9 @@ const Index = () => {
       {/* Experience Section Start */}
       {skills && <Experience skills={skills} />}
       {/* Experience Section End */}
+      {/* Timeline Section Start */}
+      {timeline_data && <Timeline timeline_data={timeline_data} />}
+      {/* Timeline Section End */}
       {/* Works Section Start */}
       {projects && <Works projects={projects} />}
       {/* Works Section End */}

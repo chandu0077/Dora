@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { doraSlider } from "../sliderProps";
 
 const Feedback = ({ feedbacks }) => {
-  console.log("feddbacks", feedbacks);
   return (
     <section className="feedback-section">
       <div className="container">

@@ -21,7 +21,6 @@ const PortfolioIsotope = ({ projects }) => {
         // },
       });
     }, 1000);
-    // return () => isotope.current.destroy();
   }, []);
 
   useEffect(() => {
@@ -47,22 +46,105 @@ const PortfolioIsotope = ({ projects }) => {
   return (
     <div className="work-isotope-filter">
       {/* work isotope menu */}
-      <ul className="works-list-ul wow fadeInUp"></ul>
+      <ul className="works-list-ul wow fadeInUp">
+        <li
+          className={`c-pointer ${activeBtn("*")}`}
+          onClick={handleFilterKeyChange("*")}
+        >
+          All
+        </li>
+        <li
+          className={`c-pointer ${activeBtn("youtube")}`}
+          onClick={handleFilterKeyChange("youtube")}
+          data-filter=".youtube"
+        >
+          Youtube
+        </li>
+        <li
+          className={`c-pointer ${activeBtn("vimeo")}`}
+          onClick={handleFilterKeyChange("vimeo")}
+          data-filter=".vimeo"
+        >
+          Vimeo
+        </li>
+        <li
+          className={`c-pointer ${activeBtn("soundcloud")}`}
+          onClick={handleFilterKeyChange("soundcloud")}
+          data-filter=".soundcloud"
+        >
+          Soundcloud
+        </li>
+        <li
+          className={`c-pointer ${activeBtn("popup")}`}
+          onClick={handleFilterKeyChange("popup")}
+          data-filter=".popup"
+        >
+          Popup
+        </li>
+        <li
+          className={`c-pointer ${activeBtn("details")}`}
+          onClick={handleFilterKeyChange("details")}
+          data-filter=".details"
+        >
+          Details
+        </li>
+      </ul>
       {/* work isotope items */}
       <div className="works-row wow fadeInUp">
-        {projects.map((project: any, idx: any) => (
-          <div key={idx} className="works-col youtube">
-            <a
-              href="//www.youtube.com/embed/B-ytMSuwbf8?autoplay=1"
-              onClick={(e) => {
-                e.preventDefault();
-                portfolio_modal_show(true);
-              }}
-            >
-              <img src={project.image.url} alt={project.title} />
-            </a>
-          </div>
-        ))}
+        {projects.map((project: any, idx: number) => {
+          if (idx >= 0 && idx < 3) {
+            return (
+              <div className="works-col youtube">
+                <a href="//www.youtube.com/embed/B-ytMSuwbf8?autoplay=1">
+                  <img src={project.image.url} alt="dora_img" />
+                </a>
+              </div>
+            );
+          }
+          if (idx >= 3 && idx < 6) {
+            return (
+              <div className="works-col vimeo">
+                <a href="//player.vimeo.com/video/132528823?autoplay=1">
+                  <img src={project.image.url} alt="dora_img" />
+                </a>
+              </div>
+            );
+          }
+          if (idx >= 6 && idx < 9) {
+            return (
+              <div className="works-col soundcloud">
+                <a href="https://w.soundcloud.com/player/?visual=true&url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F159967086&show_artwork=true&maxwidth=1020&maxheight=1000&auto_play=1">
+                  <img src={project.image.url} alt="dora_img" />
+                </a>
+              </div>
+            );
+          }
+          if (idx >= 9 && idx < 12) {
+            return (
+              <div className="works-col popup">
+                <a href={project.image.url}>
+                  <img src={project.image.url} alt="dora_img" />
+                </a>
+              </div>
+            );
+          }
+          if (idx >= 12 && idx < 15) {
+            return (
+              <div className="works-col details">
+                <a
+                  href="#"
+                  className="details-item"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    portfolio_modal_show(true);
+                  }}
+                >
+                  <img src={project.image.url} alt="dora_img" />
+                </a>
+              </div>
+            );
+          }
+        })}
       </div>
     </div>
   );

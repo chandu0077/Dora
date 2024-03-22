@@ -1,5 +1,4 @@
 const Experience = ({ skills }) => {
-  console.log("experience", skills);
   return (
     <section className="experience-section" id="about">
       <div className="container">

@@ -14,6 +14,7 @@ const type = {
   FEEDBACK_DATA: "FEEDBACK_DATA",
   PROJECTS_DATA: "PROJECTS_DATA",
   SOCIAL_HANDLES_DATA: "SOCIAL_HANDLES_DATA",
+  TIMELINE_DATA: "TIMELINE_DATA",
 };
 const {
   BLOG,
@@ -25,6 +26,7 @@ const {
   FEEDBACK_DATA,
   PROJECTS_DATA,
   SOCIAL_HANDLES_DATA,
+  TIMELINE_DATA,
 } = type;
 
 // Initial Value
@@ -60,6 +62,7 @@ const initialState = {
   feedbacks: null,
   social_handles: null,
   portfolio_modal: false,
+  timeline_data: null,
 };
 
 // Reducer
@@ -111,6 +114,11 @@ const reducer = (state, action) => {
         ...state,
         social_handles: payload,
       };
+    case TIMELINE_DATA:
+      return {
+        ...state,
+        timeline_data: payload,
+      };
     default:
       return state;
   }
@@ -125,7 +133,6 @@ const DoraState = ({ children }) => {
       "https://portfolio-backend-30mp.onrender.com/api/v1/get/user/65b3a22c01d900e96c4219ae",
     ).then((res) => {
       res.json().then((result) => {
-        console.log("RESULT", result);
         dispatch({
           type: ABOUT,
           payload: result.user.about,
@@ -149,6 +156,10 @@ const DoraState = ({ children }) => {
         dispatch({
           type: SOCIAL_HANDLES_DATA,
           payload: result.user.social_handles,
+        });
+        dispatch({
+          type: TIMELINE_DATA,
+          payload: result.user.timeline,
         });
       });
     });
@@ -192,6 +203,7 @@ const DoraState = ({ children }) => {
     feedbacks,
     projects,
     social_handles,
+    timeline_data,
   } = state;
   return (
     <DoraContext.Provider
@@ -208,6 +220,7 @@ const DoraState = ({ children }) => {
         skills: skills,
         feedbacks: feedbacks,
         projects: projects,
+        timeline_data: timeline_data,
         social_handles: social_handles,
       }}
     >

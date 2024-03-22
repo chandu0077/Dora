@@ -2,7 +2,6 @@ import emailjs from "emailjs-com";
 import { useState } from "react";
 
 const Contact = ({ social_handles }) => {
-  console.log("handles", social_handles);
   const [mailData, setMailData] = useState({
     name: "",
     email: "",
@@ -69,27 +68,6 @@ const Contact = ({ social_handles }) => {
                   </li>
                 );
               })}
-
-              {/* <li>
-                <a href="#">
-                  <i className="fab fa-instagram" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-twitter" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-dribbble" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="fab fa-facebook-f" />
-                </a>
-              </li> */}
             </ul>
           </div>
           {/* Contact right */}

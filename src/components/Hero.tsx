@@ -1,5 +1,4 @@
 const Hero = ({ about }) => {
-  console.log("//////////", about);
   return (
     <section className="hero-section" id="home">
       <div className="container">
@@ -20,7 +19,7 @@ const Hero = ({ about }) => {
           </div>
           {/* Hero Image */}
           <div className="hero-img">
-            <img src={about.avatar.url} alt="dora_img" />
+            <img src={about.avatar.url} loading="lazy" alt="dora_img" />
           </div>
         </div>
       </div>
